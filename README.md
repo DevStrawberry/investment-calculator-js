@@ -1,2 +1,2 @@
 # Fixed-rate investment calculator
-# Calculadora de Investimentos Pré-fixados
+# Calculadora de investimentos Pré-fixados
