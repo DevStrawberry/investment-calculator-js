@@ -7,30 +7,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div>
-          <label>Data da aplicação</label>
-          <input type="date" id="dataInicial" />
+    <div class="wrapper">
+        <div class="container">
+            <div>
+            <label>Data da aplicação</label>
+            <input type="date" id="dataInicial" />
+            </div>
+            <div>
+            <label>Data do vencimento</label>
+            <input type="date" id="dataFinal" />
+            </div>
+            <div>
+            <label>Valor total investido</label>
+            <input type="number" id="valorInicial" placeholder="ex: 1000.00" />
+            </div>
+            <div>
+            <label>Taxa de juros anual (%)</label>
+            <input type="number" id="taxaAnual" placeholder="ex: 15.00" />
+            </div>
+            <div>
+            <button onclick="calculadora()">Calcular</button>
+            </div>
+        
+            <div id="res"></div>
         </div>
-        <div>
-          <label>Data do vencimento</label>
-          <input type="date" id="dataFinal" />
-        </div>
-        <div>
-          <label>Valor total investido</label>
-          <input type="number" id="valorInicial" placeholder="ex: 1000.00" />
-        </div>
-        <div>
-          <label>Taxa de juros anual (%)</label>
-          <input type="number" id="taxaAnual" placeholder="ex: 15.00" />
-        </div>
-        <div>
-          <button onclick="calculadora()">Calcular</button>
-        </div>
-    
-        <div id="res"></div>
-      </div>
-
+    </div>
     <script src="backendCalculator.js"></script>
 </body>
 </html>
