@@ -1,3 +1,3 @@
 # Fixed-rate investment calculator
-# Calculadora de investimentos Pré-fixados
+# Calculadora de investimentos prefixados
 link: https://devstrawberry.github.io/Fixed-rate-investment-calculator/
