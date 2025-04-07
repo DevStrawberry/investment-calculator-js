@@ -1,6 +1,11 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
     background: rgb(28, 28, 50);
 }
 
@@ -21,7 +26,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-  .container div {
+.container div {
     margin-bottom: 15px;
 }
 
