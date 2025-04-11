@@ -1,89 +1,89 @@
-const valores = {
-    valorInicial: () => window.document.getElementById('valorInicial'),
-    aportesMensais: () => window.document.getElementById('aportesMensais'),
-    taxaAnual: () => window.document.getElementById('taxaAnual'),
-    dataInicial: () => window.document.getElementById('dataInicial'),
-    dataFinal: () => window.document.getElementById('dataFinal')
-}
-
-function calcularDiferencaDias(dataInicial, dataFinal) {
-    const inicio = new Date(dataInicial);
-    const fim = new Date(dataFinal);
-    const diferencaMs = fim - inicio;
-    const diferencaDias = diferencaMs / (1000 * 60 * 60 * 24);
-    const diferencaMeses = Math.floor((fim.getFullYear() - inicio.getFullYear()) * 12 + fim.getMonth() - inicio.getMonth());
-
-    return {
-        diferencaDias,
-        diferencaMeses
-    };
-}
-
 function formatar(valor) {
     return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
+  
 
+document.addEventListener("DOMContentLoaded", function() {
+    const tipoRentabilidade = document.getElementById("tipoRentabilidade");
+    const campoTaxaJuros = document.getElementById("campoTaxaJuros");
+    const textoTaxa = document.getElementById("textoTaxa");
+    
+    campoTaxaJuros.classList.add("campo-oculto");
+    
+    tipoRentabilidade.addEventListener("change", function() {
+      if (tipoRentabilidade.value === "") {
+        campoTaxaJuros.classList.add("campo-oculto");
+      } else {
+        campoTaxaJuros.classList.remove("campo-oculto");
+        
+        if (tipoRentabilidade.value === "posfixado") {
+          textoTaxa.textContent = "% do CDI";
+        } else {
+          textoTaxa.textContent = "% a.a.";
+        }
+      }
+    });
+});
+  
 function calculadora() {
-    const valorInicial = Number(valores.valorInicial().value);
-    const aportesMensais = Number(valores.aportesMensais().value);
-    const taxaAnual = Number(valores.taxaAnual().value);
-    const dataInicial = valores.dataInicial().value;
-    const dataFinal = valores.dataFinal().value;
+    const valorInicial = Number(document.getElementById('investimentoInicial').value);
+    const aportesMensais = Number(document.getElementById('aportesMensais').value);
+    const taxaInput = Number(document.getElementById('taxaJuros').value);
+    const periodo = Number(document.getElementById('periodo').value);
+    const unidadePeriodo = document.getElementById('unidadePeriodo').value;
+    const tipoRentabilidade = document.getElementById('tipoRentabilidade').value;
 
-    const res = document.getElementById("res");
-    res.innerHTML = "";
+    const resultado = document.getElementById("resultado");
+    resultado.innerHTML = "";
 
-    // Verificações
-    if (!valorInicial || !taxaAnual || !dataInicial || !dataFinal) {
-        res.innerHTML = "<p style='color:red;'>Preencha todos os campos corretamente.</p>";
+    if (!valorInicial || !taxaInput || !periodo || !tipoRentabilidade || !unidadePeriodo) {
+        resultado.innerHTML = "<p style='color:red;'>Preencha todos os campos obrigatórios.</p>";
         return;
     }
 
-    if (new Date(dataFinal) <= new Date(dataInicial)) {
-        res.innerHTML = "<p style='color:red;'>A data final deve ser posterior à data inicial.</p>";
-        return;
-    }
+    const CDI = 14.15;
+    const IPCA = 5.07;
+    let taxaAnual;
 
-    if (taxaAnual < 0) {
-        res.innerHTML = "<p style='color:red;'>A taxa de juros não pode ser menor que zero.</p>";
-        return;
+    if (tipoRentabilidade === "posfixado") {
+    taxaAnual = (taxaInput / 100) * CDI;
+    } else if (tipoRentabilidade === "ipca") {
+    const taxaReal = taxaInput / 100;
+    const ipcaDecimal = IPCA / 100;
+    taxaAnual = (1 + taxaReal) * (1 + ipcaDecimal) - 1;
+    taxaAnual *= 100;
+    } else {
+    taxaAnual = taxaInput;
     }
 
     const taxaMensal = (1 + (taxaAnual / 100)) ** (1 / 12) - 1;
-
-    const { diferencaDias, diferencaMeses } = calcularDiferencaDias(dataInicial, dataFinal);
+    const totalMeses = unidadePeriodo === "anos" ? periodo * 12 : periodo;
 
     let montante = valorInicial;
-    for (let i = 0; i < diferencaMeses; i++) {
-        montante += aportesMensais;
+    for (let i = 0; i < totalMeses; i++) {
         montante *= (1 + taxaMensal);
+        montante += aportesMensais;
     }
 
-    const valorTotalInvestido = valorInicial + (aportesMensais * diferencaMeses);
-    const rendimentoBruto = montante - valorTotalInvestido;
+    const totalInvestido = valorInicial + (aportesMensais * totalMeses);
+    const rendimentoBruto = montante - totalInvestido;
 
-    // Cálculo do IR regressivo
-    let aliquotaIR;
-    if (diferencaDias <= 180) {
-        aliquotaIR = 22.5 / 100;
-    } else if (diferencaDias <= 360) {
-        aliquotaIR = 20 / 100;
-    } else if (diferencaDias <= 720) {
-        aliquotaIR = 17.5 / 100;
-    } else {
-        aliquotaIR = 15 / 100;
-    }
+    const dias = totalMeses * 30;
+    let aliquotaIR = 0.15;
+    if (dias <= 180) aliquotaIR = 0.225;
+    else if (dias <= 360) aliquotaIR = 0.20;
+    else if (dias <= 720) aliquotaIR = 0.175;
 
-    const IR = aliquotaIR * rendimentoBruto;
-    const valorLiquidoFinal = montante - IR;
-    const rendimentoLiquido = valorLiquidoFinal - valorTotalInvestido;
-    const taxaMensalLiquida = ((valorLiquidoFinal / valorTotalInvestido) ** (30 / diferencaDias)) - 1;
+    const IR = rendimentoBruto * aliquotaIR;
+    const valorLiquido = montante - IR;
+    const rendimentoLiquido = valorLiquido - totalInvestido;
+    const taxaMensalLiquida = ((valorLiquido / totalInvestido) ** (1 / totalMeses)) - 1;
 
-    res.innerHTML += `<p>Valor total investido (inicial + aportes): ${formatar(valorTotalInvestido)}</p>`;
-    res.innerHTML += `<p>Valor bruto no vencimento: ${formatar(montante)}</p>`;
-    res.innerHTML += `<p>Rendimento bruto: ${formatar(rendimentoBruto)}</p>`;
-    res.innerHTML += `<p>IR (${(aliquotaIR * 100).toFixed(1)}%): -${formatar(IR)}</p>`;
-    res.innerHTML += `<p>Rendimento líquido: ${formatar(rendimentoLiquido)}</p>`;
-    res.innerHTML += `<p>Valor líquido final: ${formatar(valorLiquidoFinal)}</p>`;
-    res.innerHTML += `<p>Rentabilidade mensal líquida (média): ${(taxaMensalLiquida * 100).toFixed(2)}% ao mês</p>`;
+    resultado.innerHTML += `<p>Valor total investido: ${formatar(totalInvestido)}</p>`;
+    resultado.innerHTML += `<p>Valor bruto final: ${formatar(montante)}</p>`;
+    resultado.innerHTML += `<p>Rendimento bruto: ${formatar(rendimentoBruto)}</p>`;
+    resultado.innerHTML += `<p>IR (${(aliquotaIR * 100).toFixed(1)}%): -${formatar(IR)}</p>`;
+    resultado.innerHTML += `<p>Rendimento líquido: ${formatar(rendimentoLiquido)}</p>`;
+    resultado.innerHTML += `<p>Valor líquido final: ${formatar(valorLiquido)}</p>`;
+    resultado.innerHTML += `<p>Rentabilidade líquida média: ${(taxaMensalLiquida * 100).toFixed(2)}% ao mês</p>`;
 }
