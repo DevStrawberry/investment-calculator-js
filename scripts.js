@@ -44,6 +44,10 @@ function calculadora() {
         return;
     }
 
+    if (taxaAnual < 0) {
+        res.innerHTML = "<p style='color:red;'>A taxa de juros não pode ser menor que zero.</p>";
+    }
+
     const taxaMensal = (1 + (taxaAnual / 100)) ** (1 / 12) - 1;
 
     const { diferencaDias, diferencaMeses } = calcularDiferencaDias(dataInicial, dataFinal);
