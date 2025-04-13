@@ -1,11 +1,21 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
 body {
     font-family: Arial, sans-serif;
     background-color: #f3f3f3;
-    margin: 0;
-    padding: 40px 0;
-    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: auto;
+    padding: 40px 10px; /* padding para scroll não cortar conteúdo */
+    box-sizing: border-box;
 }
-
+  
 .container {
     background-color: #fff;
     padding: 30px;
@@ -13,7 +23,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
-    margin: 0 auto;
 }
 
 h1 {
