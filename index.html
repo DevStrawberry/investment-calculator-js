@@ -7,55 +7,56 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Investment Calculator</h1>
-    <form id="calculator-form">
-      <div class="campo">
-        <label for="investimentoInicial">Investimento inicial</label>
-        <input type="number" id="investimentoInicial" placeholder="ex: 1000.00" required />
-      </div>
+  <div class="wrapper">
+    <div class="container">
+      <h1>Investment Calculator</h1>
+      <form id="calculator-form">
+        <div class="campo">
+          <label for="investimentoInicial">Investimento inicial</label>
+          <input type="number" id="investimentoInicial" placeholder="ex: 1000.00" required />
+        </div>
 
-      <div class="campo">
-        <label for="aportesMensais">Aportes mensais</label>
-        <input type="number" id="aportesMensais" placeholder="ex: 100.00" />
-      </div>      
+        <div class="campo">
+          <label for="aportesMensais">Aportes mensais</label>
+          <input type="number" id="aportesMensais" placeholder="ex: 100.00" />
+        </div>      
 
-      <div class="campo">
-        <label for="periodo">Período da aplicação</label>
-        <div class="periodo-container">
-          <input type="number" id="periodo" placeholder="ex: 7" min="1" required />
-          <select id="unidadePeriodo" required>
+        <div class="campo">
+          <label for="periodo">Período da aplicação</label>
+          <div class="periodo-container">
+            <input type="number" id="periodo" placeholder="ex: 7" min="1" required />
+            <select id="unidadePeriodo" required>
+              <option value="">Selecione</option>
+              <option value="anos" selected>Anos</option>
+              <option value="meses">Meses</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="tipoRentabilidade">Tipo de rentabilidade</label>
+          <select id="tipoRentabilidade" required>
             <option value="">Selecione</option>
-            <option value="anos" selected>Anos</option>
-            <option value="meses">Meses</option>
+            <option value="prefixado">Prefixado</option>
+            <option value="posfixado">Pós-fixado</option>
+            <option value="ipca">IPCA+</option>
           </select>
         </div>
-      </div>
 
-      <div class="campo">
-        <label for="tipoRentabilidade">Tipo de rentabilidade</label>
-        <select id="tipoRentabilidade" required>
-          <option value="">Selecione</option>
-          <option value="prefixado">Prefixado</option>
-          <option value="posfixado">Pós-fixado</option>
-          <option value="ipca">IPCA+</option>
-        </select>
-      </div>
-
-      <div class="campo campo-oculto" id="campoTaxaJuros">
-        <label for="taxaJuros">Taxa de juros</label>
-        <div class="periodo-container">
-          <input type="number" id="taxaJuros" placeholder="ex: 100.00" required />
-          <span id="textoTaxa">% a.a.</span>
+        <div class="campo campo-oculto" id="campoTaxaJuros">
+          <label for="taxaJuros">Taxa de juros</label>
+          <div class="periodo-container">
+            <input type="number" id="taxaJuros" placeholder="ex: 100.00" required />
+            <span id="textoTaxa">% a.a.</span>
+          </div>
         </div>
-      </div>
 
-      <button type="button" onclick="calculadora()">Calcular</button>
-    </form>
+        <button type="button" onclick="calculadora()">Calcular</button>
+      </form>
 
-    <div id="resultado"></div>
+      <div id="resultado"></div>
+    </div>
   </div>
-
   <script src="scripts.js"></script>
 </body>
 </html>
