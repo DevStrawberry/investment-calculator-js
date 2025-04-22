@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Investment Calculator</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="wrapper">
     <div class="container">
+      <div style="text-align: right; margin-bottom: 10px;">
+        <label style="font-size: 14px;">
+          <input type="checkbox" id="darkModeToggle" /> Modo escuro
+        </label>
+      </div>
       <h1>Investment Calculator</h1>
       <form id="calculator-form">
         <div class="campo">
@@ -19,7 +24,7 @@
         <div class="campo">
           <label for="aportesMensais">Aportes mensais</label>
           <input type="number" id="aportesMensais" placeholder="ex: 100.00" />
-        </div>      
+        </div>
 
         <div class="campo">
           <label for="periodo">Período da aplicação</label>
@@ -55,8 +60,22 @@
       </form>
 
       <div id="resultado"></div>
+      
+      <div style="text-align: center; margin-top: 10px;">
+        <button type="button" id="btnExportar" class="btn-exportar">Exportar resultados</button>
+      </div>
+      
+      <div id="graficoWrapper" style="display: none;">
+        <div class="grafico-container">
+          <canvas id="graficoEvolucao"></canvas>
+        </div>
+      </div>
+
     </div>
   </div>
+
   <script src="scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>
