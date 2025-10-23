@@ -1,10 +1,10 @@
-# 📈 Investment Calculator - Calculadora de Investimentos
+# Investment Calculator - Calculadora de Investimentos
 
 Uma calculadora simples e robusta para simular a evolução de investimentos com aportes regulares e diferentes tipos de rentabilidade (Prefixado, Pós-fixado e IPCA+).
 
 O projeto é construído com **HTML, CSS e JavaScript vanilla**, utilizando as bibliotecas **Chart.js** para visualização gráfica e **jsPDF** para exportação de relatórios.
 
-## 🔗 Acesso ao Projeto
+## Acesso ao Projeto
 
 Você pode acessar e utilizar a calculadora diretamente no GitHub Pages:
 
@@ -12,7 +12,7 @@ Você pode acessar e utilizar a calculadora diretamente no GitHub Pages:
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 * **Simulação de Investimentos:** Calcule o valor final, rendimento bruto e líquido de uma aplicação.
 * **Aportes Mensais:** Inclua o valor de aportes mensais para projeções de longo prazo.
@@ -28,7 +28,7 @@ Você pode acessar e utilizar a calculadora diretamente no GitHub Pages:
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 * **HTML5**
 * **CSS3**
@@ -38,7 +38,7 @@ Você pode acessar e utilizar a calculadora diretamente no GitHub Pages:
 
 ---
 
-## 🚀 Como Executar Localmente
+## Como Executar Localmente
 
 Se você deseja rodar ou contribuir com o projeto localmente, siga os passos abaixo:
 
@@ -59,7 +59,7 @@ Como este projeto utiliza apenas HTML, CSS e JavaScript vanilla, não é necess�
 
 ---
 
-## 📝 Contribuição
+## Contribuição
 
 Contribuições são bem-vindas! Se você tiver sugestões de melhorias, novos recursos ou encontrar algum bug, sinta-se à vontade para abrir uma **Issue** ou enviar um **Pull Request**.
 
@@ -71,7 +71,7 @@ Contribuições são bem-vindas! Se você tiver sugestões de melhorias, novos r
 
 ---
 
-## 📄 Licença
+## Licença
 
 Este projeto está sob a licença [MIT](https://opensource.org/licenses/MIT).
 
