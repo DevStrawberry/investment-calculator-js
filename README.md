@@ -1,18 +1,67 @@
 # Investment Calculator - Calculadora de Investimentos
 
+## English (EN)
+
+A simple and robust calculator for simulating investment growth with regular contributions and different types of return (Fixed Rate, Post-Fixed, and IPCA+).
+
+The project is built with **HTML, CSS, and vanilla JavaScript**, utilizing the **Chart.js** library for graphical visualization and **jsPDF** for report export.
+
+**[Click here to access the Investment Calculator on GitHub Pages](https://devstrawberry.github.io/investment-calculator-js/)**
+
+---
+
+### Features
+
+* **Investment Simulation:** Calculate the final value, gross, and net return of an application.
+* **Monthly Contributions:** Include the amount of monthly deposits for long-term projections.
+* **Return Types:**
+    * **Fixed Rate (Prefixado):** Enter the annual interest rate.
+    * **Post-Fixed (Pós-fixado):** Enter the percentage of the CDI (configured with a fixed CDI value for simulation).
+    * **IPCA+:** Enter the real interest rate (configured with a fixed IPCA value for simulation).
+* **Flexible Period:** Simulate over years or months.
+* **IR Calculation:** Income Tax (IR) is calculated automatically based on the fixed income regressive table (investment term).
+* **Evolution Chart:** Visualize the growth curve of your investment over time.
+* **Dark Mode:** Toggle the application theme for better viewing comfort.
+* **PDF Export:** Export the results summary and the chart to a high-resolution PDF file.
+
+### Technologies Used
+
+* **HTML5**
+* **CSS3**
+* **JavaScript (Vanilla)**
+* **[Chart.js](https://www.chartjs.org/)**: For creating the evolution chart.
+* **[jsPDF](https://jspdf.org/)**: For exporting results to PDF.
+
+### How to Run Locally
+
+If you want to run or contribute to the project locally, follow these steps:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/DevStrawberry/investment-calculator-js.git](https://github.com/DevStrawberry/investment-calculator-js.git)
+    ```
+
+2.  **Navigate to the project folder:**
+    ```bash
+    cd investment-calculator-js
+    ```
+
+3.  **Open the file:**
+    Simply open the `index.html` file in your browser.
+
+---
+
+## Português (PT-BR)
+
 Uma calculadora simples e robusta para simular a evolução de investimentos com aportes regulares e diferentes tipos de rentabilidade (Prefixado, Pós-fixado e IPCA+).
 
 O projeto é construído com **HTML, CSS e JavaScript vanilla**, utilizando as bibliotecas **Chart.js** para visualização gráfica e **jsPDF** para exportação de relatórios.
 
-## Acesso ao Projeto
-
-Você pode acessar e utilizar a calculadora diretamente no GitHub Pages:
-
-**[Clique aqui para acessar a Investment Calculator](https://devstrawberry.github.io/investment-calculator-js/)**
+**[Clique aqui para acessar a Calculadora de Investimentos no GitHub Pages](https://devstrawberry.github.io/investment-calculator-js/)**
 
 ---
 
-## Funcionalidades
+### Funcionalidades
 
 * **Simulação de Investimentos:** Calcule o valor final, rendimento bruto e líquido de uma aplicação.
 * **Aportes Mensais:** Inclua o valor de aportes mensais para projeções de longo prazo.
@@ -26,9 +75,7 @@ Você pode acessar e utilizar a calculadora diretamente no GitHub Pages:
 * **Modo Escuro (Dark Mode):** Alterne o tema da aplicação para maior conforto visual.
 * **Exportação em PDF:** Exporte o resumo dos resultados e o gráfico para um arquivo PDF em alta resolução.
 
----
-
-## Tecnologias Utilizadas
+### Tecnologias Utilizadas
 
 * **HTML5**
 * **CSS3**
@@ -36,9 +83,7 @@ Você pode acessar e utilizar a calculadora diretamente no GitHub Pages:
 * **[Chart.js](https://www.chartjs.org/)**: Para criação do gráfico de evolução.
 * **[jsPDF](https://jspdf.org/)**: Para a exportação dos resultados em PDF.
 
----
-
-## Como Executar Localmente
+### Como Executar Localmente
 
 Se você deseja rodar ou contribuir com o projeto localmente, siga os passos abaixo:
 
@@ -55,23 +100,15 @@ Se você deseja rodar ou contribuir com o projeto localmente, siga os passos aba
 3.  **Abra o arquivo:**
     Simplesmente abra o arquivo `index.html` em seu navegador.
 
-Como este projeto utiliza apenas HTML, CSS e JavaScript vanilla, não é necessário instalar dependências de Node.js ou servidor local.
+---
+
+## Contribuição / Contribution
+
+Contribuições são bem-vindas! Se você tiver sugestões de melhorias ou encontrar algum bug, sinta-se à vontade para abrir uma **Issue** ou enviar um **Pull Request**.
 
 ---
 
-## Contribuição
-
-Contribuições são bem-vindas! Se você tiver sugestões de melhorias, novos recursos ou encontrar algum bug, sinta-se à vontade para abrir uma **Issue** ou enviar um **Pull Request**.
-
-1.  Faça um Fork do projeto.
-2.  Crie uma nova branch (`git checkout -b feature/minha-feature`).
-3.  Commit suas alterações (`git commit -m 'feat: adiciona nova funcionalidade'`).
-4.  Envie para o branch (`git push origin feature/minha-feature`).
-5.  Abra um Pull Request.
-
----
-
-## Licença
+## Licença / License
 
 Este projeto está sob a licença [MIT](https://opensource.org/licenses/MIT).
 
