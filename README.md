@@ -6,7 +6,7 @@ A simple and robust calculator for simulating investment growth with regular con
 
 The project is built with **HTML, CSS, and vanilla JavaScript**, utilizing the **Chart.js** library for graphical visualization and **jsPDF** for report export.
 
-**[Click here to access the Investment Calculator on GitHub Pages](https://devstrawberry.github.io/investment-calculator-js/)**
+**[Click here to access the Investment Calculator on GitHub Pages](https://matheushstrindade.github.io/investment-calculator-js/)**
 
 ---
 
